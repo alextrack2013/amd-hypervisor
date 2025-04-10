@@ -148,17 +148,17 @@ namespace svm
         bool is_hypervisor_vendor_installed()
         {
             int registers[4];   // eax ebx ecx edx
-            char vedor_id[13];
+            char vendor_id[13];
 
             // when hypervisor is active, CPUID leaf 0x40000000
             // will return our own hypervisor vendor
             __cpuid(registers, static_cast<int>(cpuid::hypervisor_vendor_id));
-            RtlCopyMemory(vedor_id + 0, &registers[1], sizeof(registers[1]));
-            RtlCopyMemory(vedor_id + 4, &registers[2], sizeof(registers[2]));
-            RtlCopyMemory(vedor_id + 8, &registers[3], sizeof(registers[3]));
-            vedor_id[12] = ANSI_NULL;
+            RtlCopyMemory(vendor_id + 0, &registers[1], sizeof(registers[1]));
+            RtlCopyMemory(vendor_id + 4, &registers[2], sizeof(registers[2]));
+            RtlCopyMemory(vendor_id + 8, &registers[3], sizeof(registers[3]));
+            vendor_id[12] = ANSI_NULL;
 
-            return (strcmp(vedor_id, "svm         ") == 0);
+            return (strcmp(vendor_id, "svm         ") == 0);
         }
 
         uint16_t get_segment_access_rights(uint16_t segment_selector, ULONG_PTR gdt_base)
