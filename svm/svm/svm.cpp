@@ -9,9 +9,9 @@ namespace svm
         __cpuid(registers, static_cast<int>(cpuid::cpu_vendor_string));
 
         // an AMD processor should always return AuthenticAMD
-        return ((registers[1] == 'htuA') &&
-            (registers[3] == 'itne') &&
-            (registers[2] == 'DMAc'));
+        return (registers[1] == rev_str("Auth")) &&
+            (registers[3] == rev_str("enti")) &&
+            (registers[2] == rev_str("cAMD"));
     }
 
     inline bool is_svm_supported()

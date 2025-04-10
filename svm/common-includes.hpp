@@ -14,6 +14,12 @@
 #include <intrin.h>
 #include <stdint.h>
 
+#define rev_str(s) \
+    ( (int)((s)[0]) << 24 | \
+      (int)((s)[1]) << 16 | \
+      (int)((s)[2]) <<  8 | \
+      (int)((s)[3]) )
+
 #define debug_log(text, ...) (DbgPrintEx(0, 0, /*xs*/(text), ##__VA_ARGS__))
 
 #define debug_break() __debugbreak();

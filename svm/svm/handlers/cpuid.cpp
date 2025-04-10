@@ -29,7 +29,7 @@ namespace svm
                 // this is used in util::is_hypervisor_vendor_installed()
                 // to check if the hypervisor is running
                 registers[0] = static_cast<int>(cpuid::hypervisor_vendor_id); // CPUID_HV_MAX
-                registers[1] = ' mvs';
+                registers[1] = rev_str("svm ");
                 registers[2] = '    ';
                 registers[3] = '    ';
                 break;
@@ -37,7 +37,7 @@ namespace svm
             case static_cast<int>(cpuid::hypervisor_interface):
                 // specify that our hypervisor does not 
                 // conform to the Microsoft hypervisor interface
-                registers[0] = '0#vH';  // Hv#0
+                registers[0] = rev_str("Hv#0"); // 0#vH
                 registers[1] = registers[2] = registers[3] = 0;
                 break;
 
