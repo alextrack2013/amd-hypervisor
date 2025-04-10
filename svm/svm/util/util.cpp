@@ -8,7 +8,7 @@ namespace svm
         {
             PVOID memory;
 
-            memory = ExAllocatePoolWithTag(NonPagedPool, size, 'vmm');
+            memory = ExAllocatePool2(POOL_FLAG_NON_PAGED, size, 'vmm');
 
             if (memory)
             {
