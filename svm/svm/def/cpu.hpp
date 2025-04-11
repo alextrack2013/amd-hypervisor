@@ -28,6 +28,9 @@ namespace svm
     enum class cpuid : uint32_t
     {
         cpu_vendor_string = 0x00000000,
+        cpu_brand_string1 = 0x80000002,
+        cpu_brand_string2 = 0x80000003,
+        cpu_brand_string3 = 0x80000004,
         processor_feature_id = 0x00000001,
         hypervisor_present_ex = 0x80000000,
         processor_feature_id_ex = 0x80000001,

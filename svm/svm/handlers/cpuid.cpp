@@ -41,6 +41,21 @@ namespace svm
                 registers[1] = registers[2] = registers[3] = 0;
                 break;
 
+            case static_cast<int>(cpuid::processor_feature_id):
+                break;
+
+            case static_cast<int>(cpuid::processor_feature_id_ex):
+                break;
+
+            case static_cast<int>(cpuid::cpu_brand_string1):
+                break;
+
+            case static_cast<int>(cpuid::cpu_brand_string2):
+                break;
+
+            case static_cast<int>(cpuid::cpu_brand_string3):
+                break;
+
             case CPUID_UNLOAD:
                 if (sub_leaf == CPUID_UNLOAD)
                 {
